@@ -1,3 +1,5 @@
+package aoc2025;
+
 import java.util.Arrays;
 import java.util.OptionalInt;
 import java.util.stream.IntStream;
@@ -37,7 +39,9 @@ public class Day3 {
         int firstDigit = maxInt(levels, size);
         int firstDigitPosition;
         String substring;
-        if (size == 1) return String.valueOf(firstDigit);
+        if (size == 1) {
+            return String.valueOf(firstDigit);
+        }
 
         firstDigitPosition = getFirstDigitPosition(levels, firstDigit);
         substring = generateMaxSubstring(levels, size, firstDigitPosition);
@@ -52,8 +56,8 @@ public class Day3 {
 
     private static String generateMaxSubstring(int[] levels, int size, int firstDigitPosition) {
         String substring;
-        int[] subLevels = Arrays.stream(levels).skip(firstDigitPosition +1).toArray();
-        substring = getMaxSubstring(subLevels, size -1);
+        int[] subLevels = Arrays.stream(levels).skip(firstDigitPosition + 1).toArray();
+        substring = getMaxSubstring(subLevels, size - 1);
         return substring;
     }
 
@@ -62,6 +66,8 @@ public class Day3 {
         OptionalInt firstDigit = Arrays.stream(levels).limit(maxSize).max();
         if (firstDigit.isPresent()) {
             return firstDigit.getAsInt();
-        } else return 0;
+        } else {
+            return 0;
+        }
     }
 }

@@ -1,3 +1,5 @@
+package aoc2025;
+
 public class Day1 {
     static int dialPosition = 50;
     static int zeroes = 0;
